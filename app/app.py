@@ -395,19 +395,17 @@ with st.sidebar:
 
 st.markdown(
     """
-    <div class="hero">
-
-        <div class="hero-title">
-            🏠 Smart House <span>Price Predictor</span>
-        </div>
-
-        <div class="hero-subtitle">
-            Estimate the market value of a property using
-            machine learning and real estate features.
-        </div>
-
+<div class="hero">
+    <div class="hero-title">
+        🏠 Smart House <span>Price Predictor</span>
     </div>
-    """,
+
+    <div class="hero-subtitle">
+        Estimate the market value of a property using
+        machine learning and real estate features.
+    </div>
+</div>
+""",
     unsafe_allow_html=True
 )
 
@@ -834,23 +832,21 @@ with right_column:
 
         st.markdown(
             """
-            <div class="prediction-card">
+<div class="prediction-card">
+    <div class="prediction-label">
+        READY TO PREDICT
+    </div>
 
-                <div class="prediction-label">
-                    READY TO PREDICT
-                </div>
+    <div class="prediction-price">
+        🏠
+    </div>
 
-                <div class="prediction-price">
-                    🏠
-                </div>
-
-                <div class="prediction-note">
-                    Enter the property details and click
-                    "Predict House Price"
-                </div>
-
-            </div>
-            """,
+    <div class="prediction-note">
+        Enter the property details and click
+        "Predict House Price"
+    </div>
+</div>
+""",
             unsafe_allow_html=True
         )
 
