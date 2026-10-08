@@ -8,3 +8,5 @@ __pycache__/
 
 # Duplicate/temporary files
 models/Untitled.ipynb
+
+venv313/

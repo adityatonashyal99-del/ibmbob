@@ -40,7 +40,7 @@ PREPROCESSOR_PATHS = [
 def find_file(paths):
     """Find the first existing file from a list of possible paths."""
     for path in paths:
-        if path.exists():
+        if path.exists() and path.is_file():
             return path
     return None
 
@@ -79,7 +79,7 @@ except Exception as e:
 # CUSTOM CSS
 # ============================================================
 
-st.markdown(
+st.html(
     """
     <style>
 
@@ -297,8 +297,7 @@ st.markdown(
     }
 
     </style>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -341,18 +340,17 @@ def format_indian_price(price):
 
 with st.sidebar:
 
-    st.markdown(
+    st.html(
         """
         <div class="sidebar-title">
             🏠 Smart House Predictor
         </div>
-        """,
-        unsafe_allow_html=True
+        """
     )
 
-    st.markdown("---")
+    st.html("---")
 
-    st.markdown(
+    st.html(
         """
         <div class="sidebar-text">
 
@@ -367,13 +365,12 @@ with st.sidebar:
         <b>Features:</b> 14 property attributes
 
         </div>
-        """,
-        unsafe_allow_html=True
+        """
     )
 
-    st.markdown("---")
+    st.html("---")
 
-    st.markdown(
+    st.html(
         """
         <div class="sidebar-text">
 
@@ -384,8 +381,7 @@ with st.sidebar:
         RMSE: <b>₹627,504.71</b>
 
         </div>
-        """,
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -393,7 +389,7 @@ with st.sidebar:
 # HERO SECTION
 # ============================================================
 
-st.markdown(
+st.html(
     """
 <div class="hero">
     <div class="hero-title">
@@ -405,8 +401,7 @@ st.markdown(
         machine learning and real estate features.
     </div>
 </div>
-""",
-    unsafe_allow_html=True
+"""
 )
 
 
@@ -426,16 +421,14 @@ left_column, right_column = st.columns(
 
 with left_column:
 
-    st.markdown(
-        '<div class="section-title">🏡 Property Details</div>',
-        unsafe_allow_html=True
+    st.html(
+        '<div class="section-title">🏡 Property Details</div>'
     )
 
-    st.markdown(
+    st.html(
         '<div class="section-description">'
         'Enter the details of the property to generate a price estimate.'
-        '</div>',
-        unsafe_allow_html=True
+        '</div>'
     )
 
     # --------------------------------------------------------
@@ -609,7 +602,7 @@ with left_column:
             step=100
         )
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.html("<br>")
 
     predict_button = st.button(
         "🔮 Predict House Price"
@@ -622,16 +615,14 @@ with left_column:
 
 with right_column:
 
-    st.markdown(
-        '<div class="section-title">📊 Prediction Result</div>',
-        unsafe_allow_html=True
+    st.html(
+        '<div class="section-title">📊 Prediction Result</div>'
     )
 
-    st.markdown(
+    st.html(
         '<div class="section-description">'
         'Your estimated property value will appear here.'
-        '</div>',
-        unsafe_allow_html=True
+        '</div>'
     )
 
     if predict_button:
@@ -689,7 +680,7 @@ with right_column:
             # PREDICTION CARD
             # ------------------------------------------------
 
-            st.markdown(
+            st.html(
                 f"""
                 <div class="prediction-card">
 
@@ -706,26 +697,24 @@ with right_column:
                     </div>
 
                 </div>
-                """,
-                unsafe_allow_html=True
+                """
             )
 
             # ------------------------------------------------
             # ADDITIONAL INFORMATION
             # ------------------------------------------------
 
-            st.markdown(
+            st.html(
                 '<div class="section-title">'
                 '📌 Property Summary'
-                '</div>',
-                unsafe_allow_html=True
+                '</div>'
             )
 
             info1, info2 = st.columns(2)
 
             with info1:
 
-                st.markdown(
+                st.html(
                     f"""
                     <div class="info-card">
 
@@ -738,13 +727,12 @@ with right_column:
                         </div>
 
                     </div>
-                    """,
-                    unsafe_allow_html=True
+                    """
                 )
 
             with info2:
 
-                st.markdown(
+                st.html(
                     f"""
                     <div class="info-card">
 
@@ -757,15 +745,14 @@ with right_column:
                         </div>
 
                     </div>
-                    """,
-                    unsafe_allow_html=True
+                    """
                 )
 
             info3, info4 = st.columns(2)
 
             with info3:
 
-                st.markdown(
+                st.html(
                     f"""
                     <div class="info-card">
 
@@ -778,13 +765,12 @@ with right_column:
                         </div>
 
                     </div>
-                    """,
-                    unsafe_allow_html=True
+                    """
                 )
 
             with info4:
 
-                st.markdown(
+                st.html(
                     f"""
                     <div class="info-card">
 
@@ -797,15 +783,14 @@ with right_column:
                         </div>
 
                     </div>
-                    """,
-                    unsafe_allow_html=True
+                    """
                 )
 
             # ------------------------------------------------
             # RAW MODEL PREDICTION
             # ------------------------------------------------
 
-            st.markdown(
+            st.html(
                 f"""
                 <div class="info-card">
 
@@ -818,8 +803,7 @@ with right_column:
                     </div>
 
                 </div>
-                """,
-                unsafe_allow_html=True
+                """
             )
 
         except Exception as e:
@@ -830,7 +814,7 @@ with right_column:
 
     else:
 
-        st.markdown(
+        st.html(
             """
 <div class="prediction-card">
     <div class="prediction-label">
@@ -846,8 +830,7 @@ with right_column:
         "Predict House Price"
     </div>
 </div>
-""",
-            unsafe_allow_html=True
+"""
         )
 
 
@@ -855,12 +838,11 @@ with right_column:
 # FOOTER
 # ============================================================
 
-st.markdown(
-    "<div class='divider'></div>",
-    unsafe_allow_html=True
+st.html(
+    "<div class='divider'></div>"
 )
 
-st.markdown(
+st.html(
     """
     <div style="
         text-align:center;
@@ -872,6 +854,5 @@ st.markdown(
         <br>
         Built with Python, Scikit-learn & Streamlit
     </div>
-    """,
-    unsafe_allow_html=True
+    """
 )
